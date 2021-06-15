@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TechnicalTest</string>
+    <string name="btnOn">ON</string>
+    <string name="btnOff">OFF</string>
+    <string name="txtControl">Que voulez-vous contrôler ?</string>
+    <string name="lightDevice">Lumière</string>
+    <string name="heaterDevice">Chauffage</string>
+    <string name="rollingShutterDevice">Volet roulant</string>
+    <string name="btnChangeBirthdate">Date de naissance</string>
+    <string name="numStreet">N°</string>
+    <string name="address">Adresse</string>
+    <string name="postalCode">Code postal</string>
+    <string name="city">Ville</string>
+    <string name="country">Pays</string>
+    <string name="email">Email</string>
+    <string name="btnChangeInfo">changez informations</string>
+    <string name="btnConfirm">Valider</string>
+    <string name="maxTemp">température max atteinte</string>
+    <string name="textWelcome">Bienvenue %1$s</string>
+    <string name="errorFirstname">Entrez votre prénom</string>
+    <string name="errorInvalidFirstname">Entrez un prénom valide</string>
+    <string name="errorLastname">Entrez votre nom de famille</string>
+    <string name="errorInvalidLastname">Entrez un nom de famille valide</string>
+    <string name="errorStreetNumber">Entrez votre numéro de rue</string>
+    <string name="errorStreet">Entrez votre rue</string>
+    <string name="errorInvalidStreet">Entrez une rue valide</string>
+    <string name="errorPostalCode">Entrez votre code postal</string>
+    <string name="errorCity">Entrez votre ville</string>
+    <string name="errorCountry">Entrez votre pays</string>
+    <string name="errorInvalidCity">Entrez une ville valide</string>
+    <string name="errorInvalidCountry">Entrez un pays valide</string>
+    <string name="errorEmail">Enter votre email</string>
+    <string name="errorInvalidEmail">Enter un email valide</string>
+    <string name="errorBirthdate">Entrez votre date de naissance</string>
+    <string name="selectBirthdate">Choisissez la date</string>
+    <string name="lastname">Prénom</string>
+    <string name="firstname">Nom de famille</string>
+</resources>
