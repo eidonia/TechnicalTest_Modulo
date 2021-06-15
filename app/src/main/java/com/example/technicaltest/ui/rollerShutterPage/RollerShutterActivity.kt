@@ -2,7 +2,6 @@ package com.example.technicaltest.ui.rollerShutterPage
 
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -40,7 +39,7 @@ class RollerShutterActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(RollerShutterViewModel::class.java)
 
-        viewModel.getRollerShutter(intent.getIntExtra("RollerShutterID", 0)) .observe(this, {
+        viewModel.getRollerShutter(intent.getIntExtra("RollerShutterID", 0)).observe(this, {
             rollerShutter = it
 
             createUI()
@@ -75,14 +74,13 @@ class RollerShutterActivity : AppCompatActivity() {
         binding.slider.value = rollerShutter?.position?.toFloat()!!
 
         gradientRadiusVal = binding.slider.value * 10f
-        gradientDrawable.gradientRadius =gradientRadiusVal
-        Log.d("sliderValue", "create ${gradientDrawable.gradientRadius}")
+        gradientDrawable.gradientRadius = gradientRadiusVal
 
     }
 
     override fun onStart() {
         super.onStart()
-        if ( rollerShutter != null) {
+        if (rollerShutter != null) {
             createUI()
         } else {
             init()
@@ -91,7 +89,7 @@ class RollerShutterActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
-        if ( rollerShutter != null) {
+        if (rollerShutter != null) {
             createUI()
         } else {
             init()
@@ -100,7 +98,7 @@ class RollerShutterActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if ( rollerShutter != null) {
+        if (rollerShutter != null) {
             createUI()
         } else {
             init()

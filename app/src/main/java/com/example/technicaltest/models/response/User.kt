@@ -12,6 +12,7 @@ class User {
     var id: Int = 0
     var firstName: String? = null
     var lastName: String? = null
+
     @Ignore
     var address: Address? = null
     var addressString: String? = createAddressString()
@@ -23,7 +24,7 @@ class User {
         return sdf.format(birthDate)
     }
 
-    fun createAddressString(): String{
+    fun createAddressString(): String {
         return "${address?.streetCode}, ${address?.street} - ${address?.postalCode} ${address?.city} - ${address?.country}"
     }
 

@@ -10,67 +10,68 @@
         android:id="@+id/textDeviceName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="25sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textDeviceName"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:singleSelection="true"
-        android:layout_marginTop="20dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDeviceName"
+        app:singleSelection="true">
 
         <Button
             android:id="@+id/btnOn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:text="@string/btnOn"/>
+            android:text="@string/btnOn" />
+
         <Button
             android:id="@+id/btnOff"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:text="@string/btnOff"/>
+            android:text="@string/btnOff" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <TextView
         android:id="@+id/txtTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.4"
         android:textSize="140sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
 
 
     <ImageButton
         android:id="@+id/btnHot"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        app:layout_constraintTop_toBottomOf="@id/txtTemp"
-        app:layout_constraintStart_toStartOf="parent"
         android:background="@color/colorPrimary"
         android:src="@drawable/ic_round_add_24"
-        app:layout_constraintEnd_toStartOf="@id/btnCold"/>
+        app:layout_constraintEnd_toStartOf="@id/btnCold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTemp" />
 
     <ImageButton
         android:id="@+id/btnCold"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        app:layout_constraintTop_toBottomOf="@id/txtTemp"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/colorPrimary"
         android:src="@drawable/ic_round_remove_24"
-        app:layout_constraintStart_toEndOf="@id/btnHot"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnHot"
+        app:layout_constraintTop_toBottomOf="@id/txtTemp" />
 
     <ProgressBar
         android:id="@+id/loading"

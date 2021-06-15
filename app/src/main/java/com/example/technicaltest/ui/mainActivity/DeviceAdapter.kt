@@ -14,7 +14,8 @@ import com.example.technicaltest.utils.Constants.HEATER
 import com.example.technicaltest.utils.Constants.LIGHT
 import com.example.technicaltest.utils.Constants.ROLLER_SHUTTER
 
-class DeviceAdapter(private val adapterCallback: AdapterCallback): RecyclerView.Adapter<DeviceAdapter.ViewHolder>() {
+class DeviceAdapter(private val adapterCallback: AdapterCallback) :
+    RecyclerView.Adapter<DeviceAdapter.ViewHolder>() {
 
     private var listDevice = mutableListOf<Device>()
 
@@ -27,7 +28,7 @@ class DeviceAdapter(private val adapterCallback: AdapterCallback): RecyclerView.
         holder.textDevice.text = listDevice[position].deviceName
 
         holder.itemView.setOnLongClickListener {
-            when ( listDevice[position].productType) {
+            when (listDevice[position].productType) {
                 HEATER -> adapterCallback.deleteDevice(listDevice[position] as Heater)
                 LIGHT -> adapterCallback.deleteDevice(listDevice[position] as Light)
                 ROLLER_SHUTTER -> adapterCallback.deleteDevice(listDevice[position] as RollerShutter)

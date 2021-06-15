@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class RollerShutterViewModel @Inject constructor(private val roomRepo: RoomRepo): ViewModel() {
+class RollerShutterViewModel @Inject constructor(private val roomRepo: RoomRepo) : ViewModel() {
 
     fun getRollerShutter(id: Int): MutableLiveData<RollerShutter> {
         return roomRepo.getRollerShutter(id)

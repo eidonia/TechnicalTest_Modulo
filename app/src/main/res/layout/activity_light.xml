@@ -10,35 +10,36 @@
         android:id="@+id/textDeviceName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="25sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textDeviceName"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:singleSelection="true"
-        android:layout_marginTop="20dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDeviceName"
+        app:singleSelection="true">
 
         <Button
             android:id="@+id/btnOn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:text="@string/btnOn"/>
+            android:text="@string/btnOn" />
+
         <Button
             android:id="@+id/btnOff"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:text="@string/btnOff"/>
+            android:text="@string/btnOff" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <ProgressBar
@@ -54,22 +55,22 @@
         android:id="@+id/gradient"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/toggleButton"
-        app:layout_constraintBottom_toTopOf="@id/sliderLight"
-        android:background="@color/yellowLight"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
-        android:layout_marginTop="20dp"/>
+        android:background="@color/yellowLight"
+        app:layout_constraintBottom_toTopOf="@id/sliderLight"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/sliderLight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="50dp"
+        android:stepSize="1"
         android:valueFrom="0"
         android:valueTo="100"
-        android:stepSize="1"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

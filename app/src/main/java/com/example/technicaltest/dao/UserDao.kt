@@ -17,5 +17,11 @@ interface UserDao {
     fun getUser(): Flowable<User>
 
     @Query("UPDATE user SET firstName = :firstname ,lastname = :lastname, birthDate = :birthdate, addressString = :address, email = :email")
-    fun updateNameuser(firstname: String, lastname: String, birthdate: Long, address: String, email: String): Completable
+    fun updateNameuser(
+        firstname: String,
+        lastname: String,
+        birthdate: Long,
+        address: String,
+        email: String
+    ): Completable
 }

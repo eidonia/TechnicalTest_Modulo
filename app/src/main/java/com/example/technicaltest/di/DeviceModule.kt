@@ -9,8 +9,6 @@ import com.example.technicaltest.dao.UserDao
 import com.example.technicaltest.database.DeviceDatabase
 import com.example.technicaltest.network.StorageNetwork
 import com.example.technicaltest.utils.Constants.DB_NAME
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,7 +26,6 @@ class DeviceModule {
     @Provides
     @Singleton
     fun provideDevicesCall(): StorageNetwork {
-        val gson = GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
         return Retrofit.Builder()
             .baseUrl("http://storage42.com/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -40,10 +37,10 @@ class DeviceModule {
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): DeviceDatabase {
-            return Room.databaseBuilder(context, DeviceDatabase::class.java, DB_NAME)
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build()
+        return Room.databaseBuilder(context, DeviceDatabase::class.java, DB_NAME)
+            .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
     @Provides

@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HeaterViewModel @Inject constructor(private val roomRepo: RoomRepo): ViewModel() {
+class HeaterViewModel @Inject constructor(private val roomRepo: RoomRepo) : ViewModel() {
 
     fun getHeaterDevice(id: Int): MutableLiveData<Heater> {
         return roomRepo.getHeater(id)

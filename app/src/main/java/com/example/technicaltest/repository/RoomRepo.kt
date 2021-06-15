@@ -163,6 +163,7 @@ class RoomRepo @Inject constructor(
             })
         return mutableLiveData
     }
+
     fun getLight(id: Int): MutableLiveData<Light> {
         val mutableLiveData = MutableLiveData<Light>()
         lightDao.getLight(id)
@@ -182,7 +183,7 @@ class RoomRepo @Inject constructor(
             })
         return mutableLiveData
     }
-    
+
     fun updateModeLight(mode: String, id: Int) {
         lightDao.updateModeLight(mode, id)
             .subscribeOn(Schedulers.io())
@@ -289,7 +290,13 @@ class RoomRepo @Inject constructor(
         return mutableLiveData
     }
 
-    fun updateUser(firstname: String, lastname: String, birthdate: Long, address: String, email: String) {
+    fun updateUser(
+        firstname: String,
+        lastname: String,
+        birthdate: Long,
+        address: String,
+        email: String
+    ) {
         userDao.updateNameuser(firstname, lastname, birthdate, address, email)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

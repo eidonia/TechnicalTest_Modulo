@@ -8,13 +8,19 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SettingsViewModel @Inject constructor(private val roomRepo: RoomRepo): ViewModel() {
+class SettingsViewModel @Inject constructor(private val roomRepo: RoomRepo) : ViewModel() {
 
     fun getUser(): MutableLiveData<User> {
         return roomRepo.getUser()
     }
 
-    fun updateUser(firstname: String, lastname: String, birthdate: Long, address: String, email: String) {
+    fun updateUser(
+        firstname: String,
+        lastname: String,
+        birthdate: Long,
+        address: String,
+        email: String
+    ) {
         roomRepo.updateUser(firstname, lastname, birthdate, address, email)
     }
 

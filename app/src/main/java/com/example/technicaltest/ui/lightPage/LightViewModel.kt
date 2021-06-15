@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class LightViewModel @Inject constructor(private val roomRepo: RoomRepo): ViewModel() {
+class LightViewModel @Inject constructor(private val roomRepo: RoomRepo) : ViewModel() {
 
     fun getLightDevice(id: Int): MutableLiveData<Light> {
         return roomRepo.getLight(id)

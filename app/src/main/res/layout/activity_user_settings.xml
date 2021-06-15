@@ -93,20 +93,20 @@
             android:id="@+id/btnBirthDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/textLastName"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
-            android:text="@string/btnChangeBirthdate"/>
+            android:text="@string/btnChangeBirthdate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textLastName" />
 
         <TextView
             android:id="@+id/textModifyBirthdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/btnBirthDate"
-            app:layout_constraintTop_toTopOf="@id/btnBirthDate"
+            android:layout_marginStart="10dp"
             app:layout_constraintBottom_toBottomOf="@id/btnBirthDate"
-            android:layout_marginStart="10dp"/>
+            app:layout_constraintStart_toEndOf="@id/btnBirthDate"
+            app:layout_constraintTop_toTopOf="@id/btnBirthDate" />
 
         <ImageView
             android:id="@+id/picHome"
@@ -145,7 +145,7 @@
                 android:id="@+id/editNumStreet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -165,7 +165,7 @@
                 android:id="@+id/editVicinity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -183,7 +183,7 @@
                 android:id="@+id/editZipCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -203,7 +203,7 @@
                 android:id="@+id/editCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -221,7 +221,7 @@
                 android:id="@+id/editCountry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
@@ -259,7 +259,7 @@
                 android:id="@+id/editEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

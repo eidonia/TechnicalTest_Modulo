@@ -36,4 +36,6 @@
     <string name="selectBirthdate">Choisissez la date</string>
     <string name="lastname">Prénom</string>
     <string name="firstname">Nom de famille</string>
+    <string name="deleteDevice">Voulez-vous le supprimer ?</string>
+    <string name="btnYesDelete">Oui</string>
 </resources>

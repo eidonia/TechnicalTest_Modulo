@@ -6,7 +6,6 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.transition.Fade
-import android.util.Log
 import android.view.View
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
@@ -54,7 +53,8 @@ class MainActivity : AppCompatActivity(), DeviceAdapter.AdapterCallback {
         deviceAdapter = DeviceAdapter(this)
         mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
-        binding.listDevice.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.listDevice.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.listDevice.adapter = deviceAdapter
 
         if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean("alreadyDone", false)) {
@@ -85,12 +85,18 @@ class MainActivity : AppCompatActivity(), DeviceAdapter.AdapterCallback {
             binding.btnLightMode.visibility = View.INVISIBLE
         }
 
-        binding.btnUserPage.setOnClickListener { startActivity(Intent(this@MainActivity, UserSettings::class.java)) }
+        binding.btnUserPage.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@MainActivity,
+                    UserSettings::class.java
+                )
+            )
+        }
 
         binding.checkHeater.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 mainActivityViewModel.getHeaterList().observe(this, {
-                    Log.d("removeList", "koin")
                     if (!checkIfExist(it[0].id)) {
                         listDevices.addAll(it)
                         deviceAdapter.addList(listDevices)
@@ -129,8 +135,8 @@ class MainActivity : AppCompatActivity(), DeviceAdapter.AdapterCallback {
     }
 
     private fun checkIfExist(it: Int?): Boolean {
-        for(device: Device in listDevices) {
-            if (device.id == it) return  true
+        for (device: Device in listDevices) {
+            if (device.id == it) return true
         }
 
         return false
@@ -161,33 +167,23 @@ class MainActivity : AppCompatActivity(), DeviceAdapter.AdapterCallback {
     }
 
     override fun deleteDevice(device: Device) {
-        Log.d("blob", "${device.id} ${device.productType}")
         val contextView = findViewById<CoordinatorLayout>(R.id.coordinatorLayout)
 
-        Snackbar.make(contextView, "Do you want to delete this device ?", Snackbar.LENGTH_LONG)
-            .setAction("Yes") {
-                when(device.productType) {
+        Snackbar.make(contextView, getString(R.string.deleteDevice), Snackbar.LENGTH_LONG)
+            .setAction(getString(R.string.btnYesDelete)) {
+                when (device.productType) {
                     HEATER -> {
                         mainActivityViewModel.deleteHeater(device.id!!)
-                        Log.d("removeList", "listClearHeater b4 ${listDevices.size}")
                         deleteInList(HEATER)
-                        Log.d("removeList", "listClearHeater ${listDevices.size}")
-                        //isCheckboxCheckedHeater(binding.checkLight, binding.checkRollingShutter)
                     }
                     LIGHT -> {
                         mainActivityViewModel.deleteLight(device.id!!)
-                        Log.d("removeList", "listClearLight b4 ${listDevices.size}")
                         deleteInList(LIGHT)
-                        Log.d("removeList", "listClearLight ${listDevices.size}")
-                        //isCheckboxCheckedLight(binding.checkHeater, binding.checkRollingShutter)
 
                     }
                     ROLLER_SHUTTER -> {
                         mainActivityViewModel.deleteShutterRoller(device.id!!)
-                        Log.d("removeList", "listClearRoller b4 ${listDevices.size}")
                         deleteInList(ROLLER_SHUTTER)
-                        Log.d("removeList", "listClearRoller ${listDevices.size}")
-                        //isCheckboxCheckedRoller(binding.checkLight, binding.checkHeater)
                     }
                 }
 
@@ -196,7 +192,7 @@ class MainActivity : AppCompatActivity(), DeviceAdapter.AdapterCallback {
     }
 
     override fun openPageDevice(device: Device) {
-        when(device.productType) {
+        when (device.productType) {
             HEATER -> {
                 val intent = Intent(this, HeaterActivity::class.java)
                 intent.putExtra("HeaterID", device.id)

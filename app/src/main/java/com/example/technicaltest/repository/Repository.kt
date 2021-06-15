@@ -3,7 +3,6 @@ package com.example.technicaltest.repository
 import android.app.Application
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.technicaltest.dao.HeaterDao
 import com.example.technicaltest.dao.LightDao
@@ -25,7 +24,14 @@ import io.reactivex.rxjava3.observers.DisposableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
-class Repository @Inject constructor(private val storageNetwork: StorageNetwork, private val context: Application, private val heaterDao: HeaterDao, private val lightDao: LightDao, private val rollerShutterDao: RollerShutterDao, private val userDao: UserDao) {
+class Repository @Inject constructor(
+    private val storageNetwork: StorageNetwork,
+    private val context: Application,
+    private val heaterDao: HeaterDao,
+    private val lightDao: LightDao,
+    private val rollerShutterDao: RollerShutterDao,
+    private val userDao: UserDao
+) {
 
 
     fun getData(): MutableLiveData<Boolean> {
@@ -61,12 +67,16 @@ class Repository @Inject constructor(private val storageNetwork: StorageNetwork,
             .subscribeOn(Schedulers.io())
             .map {
                 val listDevices = mutableListOf<Heater>()
-                for (device: BTDevice in it.devices!!){
+                for (device: BTDevice in it.devices!!) {
                     if (device.productType.equals(HEATER)) {
-                        val heater = Heater(id = device.id, temperature = device.temperature, mode = device.mode, deviceName = device.deviceName, productType = device.productType)
-                        Log.d("Light", "${device.productType}")
+                        val heater = Heater(
+                            id = device.id,
+                            temperature = device.temperature,
+                            mode = device.mode,
+                            deviceName = device.deviceName,
+                            productType = device.productType
+                        )
                         listDevices.add(heater)
-                        Log.d("SizeList", "Heater : ${listDevices.size}")
                     }
                 }
                 return@map listDevices
@@ -91,12 +101,16 @@ class Repository @Inject constructor(private val storageNetwork: StorageNetwork,
             .subscribeOn(Schedulers.io())
             .map {
                 val listDevices = mutableListOf<Light>()
-                for (device: BTDevice in it.devices!!){
+                for (device: BTDevice in it.devices!!) {
                     if (device.productType.equals(LIGHT)) {
-                        val light = Light(id = device.id, intensity = device.intensity, mode = device.mode, deviceName = device.deviceName, productType = device.productType)
-                        Log.d("Light", "${device.productType}")
+                        val light = Light(
+                            id = device.id,
+                            intensity = device.intensity,
+                            mode = device.mode,
+                            deviceName = device.deviceName,
+                            productType = device.productType
+                        )
                         listDevices.add(light)
-                        Log.d("Light", "${listDevices.size}")
                     }
                 }
                 return@map listDevices
@@ -121,12 +135,15 @@ class Repository @Inject constructor(private val storageNetwork: StorageNetwork,
             .subscribeOn(Schedulers.io())
             .map {
                 val listDevices = mutableListOf<RollerShutter>()
-                for (device: BTDevice in it.devices!!){
+                for (device: BTDevice in it.devices!!) {
                     if (device.productType.equals(ROLLER_SHUTTER)) {
-                        val rollerShutter = RollerShutter(id = device.id, position = device.position, deviceName = device.deviceName, productType = device.productType)
-                        Log.d("Light", "${device.productType}")
+                        val rollerShutter = RollerShutter(
+                            id = device.id,
+                            position = device.position,
+                            deviceName = device.deviceName,
+                            productType = device.productType
+                        )
                         listDevices.add(rollerShutter)
-                        Log.d("Light", "${listDevices.size}")
                     }
                 }
                 return@map listDevices

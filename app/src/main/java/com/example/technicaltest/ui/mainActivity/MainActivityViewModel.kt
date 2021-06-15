@@ -11,7 +11,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainActivityViewModel @Inject constructor(private val repository: Repository, private val roomRepo: RoomRepo): ViewModel() {
+class MainActivityViewModel @Inject constructor(
+    private val repository: Repository,
+    private val roomRepo: RoomRepo
+) : ViewModel() {
 
     fun getData(): MutableLiveData<Boolean> {
         return repository.getData()

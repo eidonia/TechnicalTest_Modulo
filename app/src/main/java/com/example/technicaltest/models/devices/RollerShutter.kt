@@ -4,9 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class RollerShutter constructor(var position: Int?, id: Int?, deviceName: String?,
-                                productType: String?
-): Device(id,
+class RollerShutter constructor(
+    var position: Int?, id: Int?, deviceName: String?,
+    productType: String?
+) : Device(
+    id,
     deviceName, productType
 ) {
 

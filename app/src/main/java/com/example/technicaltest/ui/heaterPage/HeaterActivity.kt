@@ -31,7 +31,7 @@ class HeaterActivity : AppCompatActivity() {
         })
 
         binding.toggleButton.addOnButtonCheckedListener { _, checkedId, _ ->
-            when(checkedId) {
+            when (checkedId) {
                 R.id.btnOn -> {
                     binding.btnCold.visibility = View.VISIBLE
                     binding.btnHot.visibility = View.VISIBLE
@@ -90,7 +90,7 @@ class HeaterActivity : AppCompatActivity() {
             binding.toggleButton.check(R.id.btnOff)
             binding.btnCold.visibility = View.INVISIBLE
             binding.btnHot.visibility = View.INVISIBLE
-        }else {
+        } else {
             binding.toggleButton.check(R.id.btnOn)
             binding.btnCold.visibility = View.VISIBLE
             binding.btnHot.visibility = View.VISIBLE
@@ -99,7 +99,7 @@ class HeaterActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if ( heater != null) {
+        if (heater != null) {
             createUI()
         } else {
             init()
@@ -108,7 +108,7 @@ class HeaterActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
-        if ( heater != null) {
+        if (heater != null) {
             createUI()
         } else {
             init()
@@ -117,7 +117,7 @@ class HeaterActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if ( heater != null) {
+        if (heater != null) {
             createUI()
         } else {
             init()

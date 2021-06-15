@@ -78,7 +78,8 @@ class UserSettings : AppCompatActivity() {
     private fun updateUser() {
         with(binding) {
 
-            val adress = "${numStreet.editText!!.text}, ${vicinity.editText!!.text} - ${zipCode.editText!!.text} ${city.editText!!.text} - ${country.editText!!.text}"
+            val adress =
+                "${numStreet.editText!!.text}, ${vicinity.editText!!.text} - ${zipCode.editText!!.text} ${city.editText!!.text} - ${country.editText!!.text}"
             settingsViewModel.updateUser(
                 firstname = textFirstName.editText!!.text.toString(),
                 lastname = textLastName.editText!!.text.toString(),
@@ -200,40 +201,70 @@ class UserSettings : AppCompatActivity() {
         check = 0
         with(binding) {
 
-            if (textModifyBirthdate.text.isEmpty()){
+            if (textModifyBirthdate.text.isEmpty()) {
                 textModifyBirthdate.setTextColor(resources.getColor(R.color.design_default_color_error))
                 textModifyBirthdate.text = getString(R.string.errorBirthdate)
                 check++
             }
 
-            verifyField(textFirstName.editText!!, getString(R.string.errorFirstname), getString(R.string.errorInvalidFirstname), LETTER)
-            verifyField(textLastName.editText!!, getString(R.string.errorLastname), getString(R.string.errorInvalidLastname), LETTER)
+            verifyField(
+                textFirstName.editText!!,
+                getString(R.string.errorFirstname),
+                getString(R.string.errorInvalidFirstname),
+                LETTER
+            )
+            verifyField(
+                textLastName.editText!!,
+                getString(R.string.errorLastname),
+                getString(R.string.errorInvalidLastname),
+                LETTER
+            )
             verifyField(numStreet.editText!!, getString(R.string.errorStreetNumber), "", NUMBER)
-            verifyField(vicinity.editText!!, getString(R.string.errorStreet), getString(R.string.errorInvalidStreet), LETTER)
+            verifyField(
+                vicinity.editText!!,
+                getString(R.string.errorStreet),
+                getString(R.string.errorInvalidStreet),
+                LETTER
+            )
             verifyField(zipCode.editText!!, getString(R.string.errorPostalCode), "", NUMBER)
-            verifyField(city.editText!!, getString(R.string.errorCity), getString(R.string.errorInvalidCity), LETTER)
-            verifyField(country.editText!!, getString(R.string.errorCountry), getString(R.string.errorInvalidCountry), LETTER)
-            verifyField(email.editText!!, getString(R.string.errorEmail), getString(R.string.errorInvalidEmail), EMAIL)
+            verifyField(
+                city.editText!!,
+                getString(R.string.errorCity),
+                getString(R.string.errorInvalidCity),
+                LETTER
+            )
+            verifyField(
+                country.editText!!,
+                getString(R.string.errorCountry),
+                getString(R.string.errorInvalidCountry),
+                LETTER
+            )
+            verifyField(
+                email.editText!!,
+                getString(R.string.errorEmail),
+                getString(R.string.errorInvalidEmail),
+                EMAIL
+            )
         }
     }
 
     private fun verifyField(editText: EditText, message: String, messageValid: String, s: String) {
-            if (editText.text.isEmpty()) {
-                editText.error = message
-                check++
-            } else {
-                if (s == LETTER) {
-                    if (!containsNumber(editText.text.toString())) {
-                        editText.error = messageValid
-                        check++
-                    }
-                } else if (s == EMAIL) {
-                    if (!validateMail(editText.text.toString())) {
-                        editText.error = messageValid
-                        check++
-                    }
+        if (editText.text.isEmpty()) {
+            editText.error = message
+            check++
+        } else {
+            if (s == LETTER) {
+                if (!containsNumber(editText.text.toString())) {
+                    editText.error = messageValid
+                    check++
+                }
+            } else if (s == EMAIL) {
+                if (!validateMail(editText.text.toString())) {
+                    editText.error = messageValid
+                    check++
                 }
             }
+        }
     }
 
 

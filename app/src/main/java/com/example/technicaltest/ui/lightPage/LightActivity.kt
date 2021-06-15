@@ -2,7 +2,6 @@ package com.example.technicaltest.ui.lightPage
 
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +17,7 @@ class LightActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLightBinding
     private lateinit var lightViewModel: LightViewModel
-    private  var light: Light? = null
+    private var light: Light? = null
     private var gradientRadiusVal: Float = 0f
     private lateinit var gradientDrawable: GradientDrawable
 
@@ -48,7 +47,7 @@ class LightActivity : AppCompatActivity() {
         })
 
         binding.toggleButton.addOnButtonCheckedListener { _, checkedId, _ ->
-            when(checkedId) {
+            when (checkedId) {
                 R.id.btnOn -> {
                     binding.sliderLight.value = 50f
                     gradientRadiusVal = light?.intensity?.toFloat()!! * 10
@@ -58,7 +57,6 @@ class LightActivity : AppCompatActivity() {
                 }
 
                 R.id.btnOff -> {
-                    Log.d("blob", "btnOff")
                     gradientRadiusVal = 0f
                     gradientDrawable.gradientRadius = gradientRadiusVal
                     binding.sliderLight.value = 0f
@@ -73,7 +71,6 @@ class LightActivity : AppCompatActivity() {
             }
 
             override fun onStopTrackingTouch(slider: Slider) {
-                Log.d("sliderValue", "${slider.value}")
                 gradientDrawable.gradientRadius = slider.value * 10f
                 lightViewModel.updateIntensityLight(slider.value.toInt(), light?.id!!)
             }
@@ -95,12 +92,12 @@ class LightActivity : AppCompatActivity() {
         if (light?.mode.equals("OFF")) {
             binding.toggleButton.check(R.id.btnOff)
             gradientRadiusVal = 0f
-            gradientDrawable.gradientRadius =gradientRadiusVal
+            gradientDrawable.gradientRadius = gradientRadiusVal
             binding.sliderLight.visibility = View.INVISIBLE
         } else {
             binding.toggleButton.check(R.id.btnOn)
             gradientRadiusVal = binding.sliderLight.value * 10f
-            gradientDrawable.gradientRadius =gradientRadiusVal
+            gradientDrawable.gradientRadius = gradientRadiusVal
             binding.sliderLight.visibility = View.VISIBLE
         }
     }
@@ -114,7 +111,7 @@ class LightActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if ( light != null) {
+        if (light != null) {
             createUI()
         } else {
             init()
@@ -123,7 +120,7 @@ class LightActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
-        if ( light != null) {
+        if (light != null) {
             createUI()
         } else {
             init()
@@ -132,7 +129,7 @@ class LightActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if ( light != null) {
+        if (light != null) {
             createUI()
         } else {
             init()
